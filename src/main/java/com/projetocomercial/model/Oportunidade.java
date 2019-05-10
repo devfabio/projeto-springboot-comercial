@@ -1,12 +1,20 @@
 package com.projetocomercial.model;
 
+import javax.persistence.*;
 import java.math.BigDecimal;
 
+@Entity
 public class Oportunidade {
 
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "nome_prospecto")
     private String nomeProspecto;
+
     private String descricao;
+
     private BigDecimal valor;
 
     public Long getId() {
