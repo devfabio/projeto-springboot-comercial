@@ -1,6 +1,9 @@
 package com.projetocomercial.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Size;
 import java.math.BigDecimal;
 
 @Entity
@@ -10,11 +13,16 @@ public class Oportunidade {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @NotEmpty
+    @Size( max = 80 )
     @Column(name = "nome_prospecto")
     private String nomeProspecto;
 
+    @NotEmpty
+    @Size( max = 200)
     private String descricao;
 
+    @Min(0)
     private BigDecimal valor;
 
     public Long getId() {
